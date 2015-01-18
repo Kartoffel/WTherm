@@ -36,6 +36,7 @@ sudo usermod -a -G GPIOcontrol www-data
 `php5 /usr/local/bin/WTherm/adduser.php [username] [password] [password-confirm]`
 You should now be able to log into the WTherm!
 
+#License
 This project was released under the MIT License (MIT)
 
 Copyright (c) 2015 Niek Blankers
