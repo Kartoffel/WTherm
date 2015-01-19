@@ -36,8 +36,8 @@ sudo usermod -a -G GPIOcontrol www-data
 `php5 /usr/local/bin/WTherm/adduser.php [username] [password] [password-confirm]`
 You should now be able to log into the WTherm!
 
-optional:
- -  Set up nightly database backups and git push by creating backup.sh:
+**optional**
+ -  Set up nightly database backups by creating backup.sh:
 ```bash
 #!/bin/bash
 NOW=$(date +"%d-%m-%Y")
@@ -57,7 +57,7 @@ FILE="$HOME/backup/wtherm-$NOW.gz"
 ```
 
 #License
-This project was released under the MIT License (MIT)
+The code for this project was released under the **MIT License** (MIT)
 
 Copyright (c) 2015 Niek Blankers
 
@@ -78,3 +78,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Everything in the report folder was released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0** International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/
