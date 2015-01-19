@@ -36,6 +36,26 @@ sudo usermod -a -G GPIOcontrol www-data
 `php5 /usr/local/bin/WTherm/adduser.php [username] [password] [password-confirm]`
 You should now be able to log into the WTherm!
 
+optional:
+13. Set up nightly database backups and git push by creating backup.sh:
+```bash
+#!/bin/bash
+NOW=$(date +"%d-%m-%Y")
+
+MUSER="WTherm"
+MPASS="[database password]"
+DB="wtherm"
+
+FILE="$HOME/backup/wtherm-$NOW.gz"
+
+/usr/bin/mysqldump -u $MUSER -p$MPASS $DB | /bin/gzip -9 > $FILE
+```
+14. Mark it as an executable script: `chmod +x backup.sh`
+15. Add it to the crontab (`crontab -e`):
+```bash
+30 2 * * * ~/backup.sh
+```
+
 #License
 This project was released under the MIT License (MIT)
 
