@@ -10,6 +10,8 @@ This is a second rewritten version of my [original WTherm project](https://githu
  - Perform a `sudo apt-get update`
  - Install a LEMP (Linux-Nginx-MySQL-PHP) stack by following this tutorial: https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-on-debian-7
  - Edit `sudo nano /etc/nginx/sites-available/default` and change `root` to `/usr/local/bin/WTherm/www`.
+ - Edit `/etc/php5/fpm/php.ini` and change `short_open_tag` to `On`.
+ - Restart php5-fpm: `sudo service php5-fpm restart`
  - Also install php5-curl and command line PHP:
 ```bash
 sudo apt-get install php5-curl php5-cli
