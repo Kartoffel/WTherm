@@ -23,6 +23,7 @@ $page->startHTML("Stats"); // Indicate that HTML code is following
 </div>
 
 <script src="js/ChartNew.min.js"></script>
+<script src="js/format.min.js"></script>
 <script type="text/javascript" src="js/drawChart.js"></script>  
 <?php
 $HTML = $page->fetchHTML(); // Fetch the above HTML

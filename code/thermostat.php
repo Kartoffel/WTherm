@@ -61,26 +61,6 @@ if($T_target !== false && $target_t !== false){
 	}else{
 		$heater = false;
 	}
-	
-	// Linearly extrapolate the current temperature and that of 15 minutes ago 
-	$database->query('SELECT Time, T FROM `log` WHERE Time < (NOW() - INTERVAL 14 MINUTE) ORDER BY TIME DESC LIMIT 1');
-	$database->execute();
-	$previousRecord = $database->single();
-	
-	$lastTime = strtotime($previousRecord['Time']);
-	$lastTemp = $previousRecord['T'];
-	
-	if($T > $lastTemp){
-		// Calculate the temperature rise per hour
-		$elapsedTime = time() - $lastTime;
-		$degPerHour = ($T - $lastTemp) / ($elapsedTime / 3600); 
-		
-		// Use $degPerHour to extrapolate the temperature at the target time
-		$extrapolatedTemp = $T + $degPerHour * $target_t;
-		
-		// If the temperature appears to be rising too quickly, turn off the heater
-		if($extrapolatedTemp > $T_target) $heater = false;
-	}
 }
 
 /*-------------------------------------------------------------------
@@ -174,9 +154,8 @@ function HW_temp(){
 	$httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	
 	// Handle errors
-	if(curl_errno($ch)){
-		$errNo = curl_errno($ch);
-		handleError('cURL error: '.$errNo.' : '.curl_strerror($errNo));
+	if($errno = curl_errno($ch)){
+		handleError('cURL error: '.$errno.' : '.curl_strerror($errno));
 		return array(false,false);
 	}	
 	
@@ -191,7 +170,7 @@ function HW_temp(){
 	// Convert the JSON response into an array
 	$data = json_decode($response, true);
 	
-	// Extract the inside and outside temperature from the response
+	// Extract the inside and outside temperature from the response and check if it's a numerical value. If not, return false;
 	$T_i = (isset($data['response'][$hw_sid]['te']) && is_numeric($data['response'][$hw_sid]['te'])) ? $data['response'][$hw_sid]['te'] : false;
 	$T_o = (isset($data['response'][$hw_osid]['te']) && is_numeric($data['response'][$hw_osid]['te'])) ? $data['response'][$hw_osid]['te'] : false;
 
