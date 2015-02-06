@@ -107,8 +107,8 @@ escapeinside={\%*}{*)}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
 
+\title{WTherm - Web-connected smart thermostat}
 \author{Niek Blankers}
-\title{WTherm - a smart thermostat}
 
 \begin{document}
 \begin{titlepage}
@@ -143,7 +143,7 @@ Dolf \textsc{Breederveld}
 \end{flushright}
 \end{minipage}\\[8cm]
 
-{\large January 30, 2015}\\[0.3cm] 
+{\large \today}\\[0.3cm] 
 \begin{figure*}[!b]
 	\centering
 	\hyperref[chap:License]{\includegraphics{by-nc-sa}}
@@ -154,9 +154,9 @@ Dolf \textsc{Breederveld}
 \end{titlepage}
 
 \begin{abstract}
-This thesis delineates the research and design process involved in the development of the WTherm, a smart thermostat. The thermostat was installed in a single household. A thermal model of the living room in question is used to calculate the amount of time until a certain target temperature will be reached. This calculation is used to start heating at exactly the right time to reach the targets defined in a schedule that's programmable through a web interface. As a result, the WTherm saves energy in comparison to a traditional room thermostat. 
+This thesis delineates the research and design process involved in the develop\-ment of the WTherm, a smart thermostat. The thermostat was installed in a single household. A thermal model of the living room in question is used to calculate the amount of time until a certain target temperature will be reached. This calculation is used to start heating at exactly the right time to reach the targets defined in a schedule that's programmable through a web interface. As a result, the WTherm saves a considerable amount of energy in comparison to a traditional room thermostat. 
 
-The calculated annual saving in this particular case exceeds \EUR{150}, which is more than three times the total cost of the materials used.
+The calculated savings over the course of a single winter in this particular case exceed \EUR{16}. This means that the WTherm will have paid for itself within three years.
 \end{abstract}
 
 \setcounter{tocdepth}{1}
@@ -775,7 +775,7 @@ Imagine a situation in which a household would like the temperature to be 20\deg
 
 Based on the thermal model from page~\pageref{sec:usingModel}, it can be calculated that the guess above is almost correct for the first day. The outside temperature was 5.0\degree{}C and it would take 2.6 hours to heat up to 20\degree{}C. The same goes for the second and third day, with a heating time close to 2 and a half hours.
 
-The fourth day however, the outside temperature reached significantly higher number and it would have taken just over an hour to heat up to 20\degree{}C. This means that the thermostat spent an additional one and a half hours keeping the temperature at 20\degree{}C, at the cost of a significant amount of heat. An overview for the entire week is listed in the table below:
+The fourth day however, the outside temperature reached a significantly higher number and it would have taken just over an hour to heat up to 20\degree{}C. This means that the thermostat spent an additional one and a half hours keeping the temperature at 20\degree{}C, at the cost of a significant amount of heat. An overview for the entire week is listed in the table below:
 
 \begingroup
 	\setlength{\LTleft}{-20cm plus -1fill}
@@ -806,29 +806,31 @@ The fourth day however, the outside temperature reached significantly higher num
 This table shows that the traditional thermostat would have spent an additional total of 4.2 hours keeping the temperature at 20\degree{}C. Using the outside temperatures and the heat transfer coefficient from~\ref{sec:CalculatePUC}, it can be calculated that during these 4.2 hours, 15.6kWh has been used in order to maintain a constant room temperature. Assuming the WTherm to have switched on the heater at exactly the right time, it would have saved exactly this amount of energy. 
 
 According to the KNMI, the winter of 2014-2015 lasts for three months, or about 
-13 weeks \cite{KNMIseizoensdata}. If all of those weeks would be similar to the one described here, a total amount of 7.3 gigajoules of heat could have been saved
+13 weeks \cite{KNMIseizoensdata}. If all of those weeks would be similar to the one described here, a total amount of 731 megajoules of heat could have been saved
 
-The Dutch energy supplier Nuon employs a maximum rate of \EUR{22,64} per GJ for district heating\cite{NuonStadsverwarming}. This amounts to yearly savings of around \EUR{160}.
+The Dutch energy supplier Nuon employs a maximum rate of \EUR{22,64} per GJ for district heating\cite{NuonStadsverwarming}. This amounts to yearly savings of \EUR{16,56}.
 
-The same energy supplier charges \EUR{0,64} per $\mathrm{m^{3}}$ of natural gas\cite{NuonGas}. The heating value of natural gas from the Netherlands is $\mathrm{32\times 10^{6} Jm^{-3}}$ \cite{BinasHeatingValue}, meaning that the same 7.3 gigajoules would cost \EUR{146}.
+The same energy supplier charges \EUR{0,64} per $\mathrm{m^{3}}$ of natural gas\cite{NuonGas}. The heating value of natural gas from the Netherlands is $\mathrm{32\times 10^{6} Jm^{-3}}$ \cite{BinasHeatingValue}, meaning that the same 0,73 gigajoules would cost \EUR{14,62}.
 
-In this situation, over \EUR{150} can possibly be saved every year, which is more than triple the total cost of the used materials listed in the bill of materials on page~\pageref{chap:BOM}. This proves the WTherm to be a good investment.
+In this situation, over \EUR{16} can possibly be saved every winter, which is over one third the total cost of the used materials listed in the bill of materials on page~\pageref{chap:BOM}.
 
 \part{Conclusion}
-The objective of this research was to develop a smart web-based thermostat, WTherm, that saves energy by calculating the time it takes to heat up a living room to a certain temperature. The smart thermostat uses this calculation to precisely follow a weekly schedule that can be programmed through a web-interface. The calculation is based on a thermal model that incorporates several formulas. This thermal model is used to start heating at the right time, reducing the total heating-on time.
+The objective of this research was to develop a smart web-based thermostat, WTherm, that saves energy by calculating the time it takes to heat up a living room to a certain temperature. The smart thermostat uses this calculation to precisely follow a weekly schedule that can be programmed through a web-interface. The calculation is based on a thermal model that incorporates several formulas. This thermal model is used to switch the heater on at the right time, reducing the total heater-on time.
 
-Temperatures over the course of a week during the winter were used to compare the WTherm to a traditional room thermostat. The hypothesis was proven that, in comparison with a traditional room thermostat, a significant amount of energy can be saved. In this specific situation, over \EUR{150} can be saved every year. This amount of money is larger than the total cost of the materials used, thus proving that the WTherm is a more cost-efficient replacement for a traditional clock thermostat.
+Temperatures over the course of a week during the winter were used to compare the WTherm to a traditional room thermostat. The hypothesis was proven that, in comparison with a traditional room thermostat, a considerable amount of energy can be saved. In this specific situation, \EUR{16,50} can be saved every year. This is a third of the cost of the materials used, thus proving that the WTherm will pay for itself in three years. This also indicates that the WTherm is a more cost-efficient replacement for a traditional clock thermostat.
 
 \part{Discussion}
 The results might be arguable for a number of reasons.
 
 First of all, the thermal model is based on measurements performed in a room that wasn't heated for a couple of days, meaning that every object in the room also had to be heated up. To verify if the same model could apply to a situation in which the room has been heated the previous day, the traditional room thermostat was set to heat up to 19,5\degree{}C at 7:20. This temperature was reached 50 minutes later. The starting temperature was 18,6\degree{}C and the average outside temperature was 3,35\degree{}C. According to the model, the goal temperature should have been reached after one and a half hours, which is incorrect.
 
-Secondly, the model was created with a relatively high outside temperature. This means that if the difference between inside and outside temperatures is over 19.7\degree{}C, $Qloss$ is higher than $Qin$ and the room will not heat up at all according to the model. In reality, this is not the case. Many variables were assumed constant. The heating power for example depends on air humidity and if the sun is shining through the windows the room will also heat up in a smaller amount of time.
+Secondly, the model was created with a relatively high outside temperature. This means that if the difference between inside and outside temperatures is over 19.7\degree{}C, $Qloss$ is higher than $Qin$ and the room will not heat up at all according to the model. In reality, this is not the case. Many variables were assumed constant. The heating power for example depends on external influences such as inside and outside air humidity. If the sun is shining through the windows the room will also heat up in a smaller amount of time.
 
 The two issues addressed above can be solved by creating different thermal models for various inside and outside temperatures. Ideally, this could be done automatically using the automatic heat meter readout described in the next chapter.
 
-Another possible concern relates to the heater, which is only turned off when the target temperature has been reached. This can cause an overshoot in temperature, since there's a delay between switching the heater on and a temperature rise being measured. A simple solution might be to switch off the heater a couple of tenths of degrees below the target temperature to account for the overshoot, but this constant offset won't be very accurate as the overshoot depends on external factors. This also might result in rapid heater toggling, as the temperature fluctuates around the target. A better solution would be to use a PID\footnote{Proportional-Integral-Derivative} loop. A PID loop would control the heating by calculating Proportional, Integral and Derivative responses and summing those three components to compute the output\cite{PIDexplained}.
+Furthermore, the calculated savings might not be entirely accurate. The yearly cost reduction of the energy bill was based on calculated savings for an entire week which were extrapolated to an entire winter. The actual amount of preserved energy might vary from week to week. In addition, only the duration of the meteorological winter was used in this calculation. A larger amount of energy could be saved if the room is also heated during the autumn or spring. This signifies that the WTherm will most likely have paid for itself within the calculated three years.
+
+Another possible concern relates to the heater, which is only turned off when the target temperature has been reached. This can cause an overshoot in temperature, since there's a delay between switching the heater on and a temperature rise being measured. A simple solution might be to switch off the heater a couple of tenths of degrees below the target temperature to account for the overshoot, but this constant offset won't be very accurate as the overshoot depends on external factors. This also might result in rapid heater toggling, as the temperature fluctuates around the target. A better solution would be to use a PID\footnote{Proportional-Integral-Derivative} loop. A PID loop would control the heating by calculating Proportional, Integral and Derivative responses and summing those three components to compute the output\cite{PIDexplained}. A PID based thermostat eliminates temperature overshoot.
 
 
 \chapter{Possible future research}
@@ -838,8 +840,11 @@ According to the Landis \& Gyr catalog sheet, the heat meter installed in this h
 \section{Reliable heat measurements}
 The inside and outside temperatures are currently obtained through two wireless sensors. These sensors can only be read in the accuracy range of a single decimal number and occasionally need a replacement battery. To eliminate batteries and increase the accuracy, a high-precision wired digital thermometer such as the NXP SE95\footnote{\url{http://www.nxp.com/documents/data_sheet/SE95.pdf}} can be used. This sensor has a resolution of 0,03125\degree{}C.
 
+\section{User presence detection}
+A possibility to save more energy would be to automatically switch off the heater when no user is present in the house. This could be detected by scanning for the presence of smartphones on the network. If all smartphones disappear, the WTherm can switch off the heater on the presumption that nobody is in the house. Once a user enters the house and their smartphone automatically connects to the wireless network, the WTherm can automatically switch the heater back on.
+
 \section{Compatibility with other households}
-At the moment, the thermostat is only installed in a single situation. A future research subject might be to explore the possibility of installing it in other households.
+At the moment, the thermostat is only installed in a single situation. It can only be used in comparable households with a heat meter. Using the automatic heat meter readout described in the first section of this chapter, the WTherm could be installed in other households. A future research might explore this possibility.
 \newpage
 \printbibliography
 \vfill
@@ -856,18 +861,18 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 \end{figure}
 
 \chapter{Software} \label{chap:Software}
-All of the code for this project is available on GitHub at \url{https://github.com/NiekProductions/WTherm/}. Unlike this document, it was released under the MIT License. This is a permissive license, meaning that people can do anything they'd like with the code as long as they provide attribution to the original source. It also does away with any liability.
+All of the code for this project is available on GitHub at \url{https://github.com/NiekProductions/WTherm/}. Unlike this document, it was released under the MIT License. This is a permissive license, meaning that people can do anything they'd like with the code as long as they provide attribution to the original source. It also excludes every liability. A full copy of the license is available in the $LICENSE$ file on GitHub.
 
 \chapter{Demo}
-A demo of the web interface is available at \url{http://niekproductions.com/wtherm/}.
+A non-functional demo of the web interface used for the WTherm is available at \url{http://niekproductions.com/wtherm/}.
 
 \chapter{Git}
-To store code and keep track of changes Git\footnote{\url{http://git-scm.com/}} was used. Git is a piece of software designed for version control. It creates a repository and updates it with information about file versions and the differences between them.
+To store code and keep track of changes Git\footnote{\url{http://git-scm.com/}} was used. Git is version control software that stores the contents of a directory as sequential snapshots. In this project, it was used to keep track of file differences in this document and the source code.
 
 \chapter{\LaTeX}
-A word processor like Microsoft Word could have been used to write this thesis, but it comes with several disadvantages. Mostly, it’s hard to manage a document in the format that Word uses. Version control software like Git is able to handle the file format, but the version differences are not clear since the document isn't stored in plain text. MS Word also doesn’t support elements like code blocks with syntax highlighting.
+A word processor like Microsoft Word could have been used to write this thesis, but it comes with several disadvantages. Mostly, it’s hard to manage a document in the format that Word uses. Version control software like Git can only handle the file in a binary format, meaning that differences between versions are not visible.
 
-Instead, \LaTeX{}\footnote{\url{http://www.latex-project.org/}} was used to write this thesis. \LaTeX{} is a mark-up language, much like HTML. It was explicitly designed for writing large scientific papers, and saves documents in plain text making them easy to read. \LaTeX{} also makes it easy to insert chunks of code and reformat the documents afterwards. 
+Instead of Word, \LaTeX{}\footnote{\url{http://www.latex-project.org/}} was used to write this thesis. \LaTeX{} is a mark-up language, much like HTML. It was explicitly designed for writing large scientific papers, and saves documents in plain text making them easy to read. \LaTeX{} supports packages that make it easy to insert chunks of code and reformat the document.
 
 \chapter{Bill of materials} \label{chap:BOM}
 \begin{tabular}[c]{l c c r}
@@ -880,7 +885,7 @@ Instead, \LaTeX{}\footnote{\url{http://www.latex-project.org/}} was used to writ
 \captionof{table}{Bill of materials}
 
 \chapter{Installation instructions}
-Installation instructions can be found in the Readme file on GitHub using the link provided above.
+Installation instructions can be found in the $README$ file on GitHub using the link provided in chapter~\ref{chap:Software}.
 
 \newpage
 \chapter{Log}
@@ -891,7 +896,7 @@ Installation instructions can be found in the Readme file on GitHub using the li
     \hline
     Date & Location & Activity & Duration \\ 
     \hline
-    30-04-2014 to 07-07-2014 & Home & Preliminary research - WTherm version 1 (source of inspiration), used for snippets of code & 30 hours (estimated) \\ 
+    30-04-2014 to 07-07-2014 & Home & Preliminary research - WTherm alpha & 30 hours (estimated) \\ 
     \hline 
     18-09-2014 & Home & Finding a subject, outlining idea, brainstorming & 1:00 \\ 
     \hline
@@ -947,9 +952,7 @@ Installation instructions can be found in the Readme file on GitHub using the li
 	\hline
 	27-12-2014 & Home & Finished thermal model, documenting & 8:00 \\
 	\hline
-	28-12-2014 & Home & Started part 2 & 1:00 \\
-	\hline
-	28-12-2014 & Hackerspace & Researched proramming languages and webservers & 4:00 \\
+	28-12-2014 & Hackerspace & Started part 2, researched programming languages and webservers & 5:00 \\
 	\hline
 	01-01-2015 & Home & Set up control measurement & 1:00 \\
 	\hline
@@ -961,7 +964,7 @@ Installation instructions can be found in the Readme file on GitHub using the li
 	\hline
 	11-01-2015 & Home & Writing code. Finished schedule, database class, template parser and login system & 10:30 \\
 	\hline
-	12-01-2015 & Home & Setting up Banana Pi, installing LEMP stack with PHPMyAdmin & 2:30 \\
+	12-01-2015 & Home & Setting up Banana Pi, installing LEMP stack & 2:30 \\
 	\hline
 	13-01-2015 & School & Writing code, working on thermCalc class & 2:00 \\
 	\hline
@@ -989,9 +992,9 @@ Installation instructions can be found in the Readme file on GitHub using the li
 	\hline
 	29-01-2015 & Home & Finishing code overview, introduction, conclusion & 8:45 \\
 	\hline 
-	& & & \\
+	05-02-2015 & School & Rewriting sections, correcting calculations & 2:45\\
 	\hline
-	& & Total (excluding preliminary research) & 156 hours \\
+	& & Total (excluding preliminary research) & 158 hours\\
 	\hline
     \end{longtable}
     \captionof{table}{Log}
