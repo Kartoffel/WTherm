@@ -1,6 +1,6 @@
 #WTherm
 
-This is a second rewritten version of my [original WTherm project](https://github.com/NiekProductions/WTherm-alpha/). It adds functionality like scheduling, and uses a thermal model to predict the temperature. If you set the schedule to 20.0 degrees at 6:00, it will make sure that it reaches 20 degrees at exactly that time.
+This is a second rewritten version of my [original WTherm project](https://github.com/NiekProductions/WTherm-alpha/). This project was expanded as part of a final thesis which can be found in the **report** folder. The new WTherm has added functionality like scheduling, and uses a thermal model to predict the temperature. If you set the schedule to 20.0 degrees at 6:00, it will make sure that it reaches 20 degrees at exactly that time.
 
 ## Installation instructions
  - Download Raspbian for BananaPi from http://www.lemaker.org/resources/9-81/raspbian_for_bananapi.html
